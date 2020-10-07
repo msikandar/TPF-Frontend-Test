@@ -1,6 +1,8 @@
 # TFPtech
 
-This project was generated with [Angular](https://github.com/angular) version 9.
+This project was Created with [Angular](https://github.com/angular) version 9.
+Added Login Component.
+CSV Upload And Display.
 
 ## Development server
 
