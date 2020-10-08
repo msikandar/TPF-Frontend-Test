@@ -1,13 +1,14 @@
 .csv-file-chooser-section {
     padding: 10px;
     margin: 5%;
-    border: 1px solid;
+    border: 2px solid;
     text-align: center;
+    border-color: blue;
   }
   
   .csv-result-table {
     margin: 5%;
-    border: 1px solid #73AD21;
+    border: 2px solid palevioletred;
   
   }
   
