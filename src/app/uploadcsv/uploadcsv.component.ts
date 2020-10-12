@@ -43,8 +43,8 @@ export class UploadcsvComponent implements OnInit {
   onUpload() {
     console.log("button clicked");
     const fd = new FormData();
-    fd.append('',this.selectedFile);
-    this.http.post('https://nodepractice-atrmy.run-ap-south1.goorm.io/upload',this.selectedFile,{headers: {enctype:"multipart/form-data"}}).subscribe(res => console.log(res));
+    fd.append('file',this.selectedFile);
+    this.http.post('https://nodepractice-atrmy.run-ap-south1.goorm.io/upload',fd,{headers: {enctype:"multipart/form-data"}}).subscribe(res => console.log(res));
     console.log(this.selectedFile);
     console.log(fd)
   }
