@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxCsvParser, NgxCSVParserError } from 'ngx-csv-parser';
 
@@ -10,8 +11,8 @@ import { NgxCsvParser, NgxCSVParserError } from 'ngx-csv-parser';
 export class UploadcsvComponent implements OnInit {
   csvRecords: any[] = [];
   header = false;
- 
-  constructor(private ngxCsvParser: NgxCsvParser) {
+  selectedFile = null;
+  constructor(private ngxCsvParser: NgxCsvParser, public http: HttpClient) {
   }
   ngOnInit(): void {
   }
@@ -33,5 +34,18 @@ export class UploadcsvComponent implements OnInit {
         console.log('Error', error);
       });
  
+  }
+
+  onFileSelectedEvent(event: any) {
+    console.log(event);
+    this.selectedFile = event.target.files[0];
+  }
+  onUpload() {
+    console.log("button clicked");
+    const fd = new FormData();
+    fd.append('',this.selectedFile);
+    this.http.post('https://nodepractice-atrmy.run-ap-south1.goorm.io/upload',this.selectedFile,{headers: {enctype:"multipart/form-data"}}).subscribe(res => console.log(res));
+    console.log(this.selectedFile);
+    console.log(fd)
   }
 }

@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
     <span>TPF Technologies</span>
   </mat-toolbar>
-  <h1 style="text-align: center;color: brown;">CSV upload</h1>
+  <h1 style="text-align: center;color: brown;">CSV Local Display</h1>
 <div class="csv-file-chooser-section">
 
   <input type="file" #fileImportInput name="File Upload" id="csvFileUpload" (change)="fileChangeListener($event)"
@@ -47,5 +47,41 @@
       </tr>
     </tbody>
   </table>
-
 </div>
+
+
+
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 m-auto">
+        <h1 class="text-center display-4 my-4">Mongo File Uploads</h1>
+        <form action="https://nodepractice-atrmy.run-ap-south1.goorm.io/upload" method="POST" enctype="multipart/form-data">
+          <div class="custom-file mb-3">
+            <input type="file" name="file" id="file" class="custom-file-input" (change)="onFileSelectedEvent($event)">
+            <label for="file" class="custom-file-label">Choose File</label>
+          </div>
+          <button class="btn btn-primary btn-block" (click)="onUpload()" type="button">Upload</button>
+        </form>
+        <hr>
+        <!-- <% if(files){ %>
+          <% files.forEach(function(file) { %>
+            <div class="card card-body mb-3">
+              <% if(file.isImage) { %>
+                <img src="image/<%= file.filename %>" alt="">
+                <% } else { %>
+                  <%= file.filename %>
+                    <% } %>
+                      <form method="POST" action="/files/<%= file._id %>?_method=DELETE">
+                        <button class="btn btn-danger btn-block mt-4">Delete</button>
+                      </form>
+            </div>
+            <% }) %>
+              <% } else { %>
+                <p>No files to show</p>
+                <% } %> -->
+      </div>
+    </div>
+  </div>
