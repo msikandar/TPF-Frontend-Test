@@ -13,12 +13,16 @@ import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { UploadcsvComponent } from './uploadcsv/uploadcsv.component';
 import { FormsModule } from '@angular/forms';
+import { UploadtomongoComponent } from './uploadtomongo/uploadtomongo.component';
+import { AppService } from './app.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UploadcsvComponent
+    UploadcsvComponent,
+    UploadtomongoComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +34,10 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatCardModule,
     MatToolbarModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [AppService, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
